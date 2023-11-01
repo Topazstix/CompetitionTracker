@@ -1,0 +1,6 @@
+name: comp-tracker
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+prefix: /home/topazstix/miniconda3/envs/comp-tracker
