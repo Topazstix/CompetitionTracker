@@ -1,0 +1,16 @@
+{% extends 'competition_tracker/base_template.html' %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h2>Competition Detail</h2>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ competition.name }}</h4>
+        <p class="card-text">{{ competition.description }}</p>
+        <p class="card-text">Start Date: {{ competition.start_date }}</p>
+        <p class="card-text">End Date: {{ competition.end_date }}</p>
+        <a href="{% url 'competitions' %}" class="btn btn-primary">Back to List</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!-- competition_list.html -->
+{% extends 'competition_tracker/base_template.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>Competitions</h2>
+		<a href="{% url 'competition-create' %}" class="btn btn-success mb-3">Add New Competition</a>
+    <div class="row">
+        {% for competition in competition_list %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ competition.name }}</h5>
+                    <p class="card-text">{{ competition.description }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="{% url 'competition-detail' competition.id %}" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="{% url 'competition-delete' competition.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                        </div>
+                        <small class="text-muted">{{ competition.start_date }} - {{ competition.end_date }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

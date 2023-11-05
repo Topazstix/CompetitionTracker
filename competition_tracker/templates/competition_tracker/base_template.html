@@ -63,7 +63,9 @@
 
         <!-- Set the nav bar links and names -->
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+          <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+          <!-- Link to the competitions page -->
+          <li><a href="/competitions" class="nav-link px-2 link-secondary">Competitions</a></li>
         </ul>
         
         <!-- Darkmode toggle switch -->
@@ -93,6 +95,10 @@
       </div>
     </div>
 </header>
+
+<!-- add block content from html template -->
+{% block content %} 
+{% endblock %}
 
 <!-- Dark mode toggle -->
 <script>
