@@ -1,4 +1,3 @@
-# Landing Page / Dev Notes
-- Command to freeze pip modules once setup
-    - `pip freeze > requirements.txt`
-- 
+# Table of Contents
+
+Please view the [documentation on setup](./documentation/General_Guidance.md) for documentation.
