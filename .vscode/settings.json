@@ -1,0 +1,13 @@
+{
+  "emmet.includeLanguages": { "django-html": "html" },
+  "files.associations": {
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*.djt.txt": "django-txt"
+  },
+  "[django-html]": {
+    "editor.defaultFormatter": "batisteo.vscode-django",
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2
+  }
+}

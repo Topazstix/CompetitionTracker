@@ -1,0 +1,13 @@
+{% extends 'competition_tracker/base_template.html' %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h2>Create Competition</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a href="{% url 'competitions' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

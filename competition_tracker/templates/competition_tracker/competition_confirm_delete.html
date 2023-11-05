@@ -1,0 +1,13 @@
+{% extends 'competition_tracker/base_template.html' %}
+
+{% block content %}
+  <div class="container mt-3">
+    <h2>Confirm Delete Competition</h2>
+    <form method="post">
+      {% csrf_token %}
+      <p>Are you sure you want to delete "{{ competition.name }}"?</p>
+      <button type="submit" class="btn btn-danger">Yes, delete</button>
+      <a href="{% url 'competition-detail' competition.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

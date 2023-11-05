@@ -1,22 +1,14 @@
-"""
-URL configuration for competition_tracker project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
+    path('competitions/', views.CompetitionListView.as_view(), name='competitions'),
+    path('competition/<int:pk>', views.CompetitionDetailView.as_view(), name='competition-detail'),
+    path('competition/create/', views.CompetitionCreateView.as_view(), name='competition-create'),
+    path('competition/<int:pk>/delete/', views.CompetitionDeleteView.as_view(), name='competition-delete'),
+    path('club-members/', views.ClubMemberListView.as_view(), name='club-members'),
+    path('club-member/<int:pk>', views.ClubMemberDetailView.as_view(), name='club-member-detail'),
+    path('club-member/create/', views.ClubMemberCreateView.as_view(), name='club-member-create'),
+    path('club-member/<int:pk>/delete/', views.ClubMemberDeleteView.as_view(), name='club-member-delete'),
 ]
