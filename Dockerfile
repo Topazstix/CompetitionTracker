@@ -1,15 +1,22 @@
-FROM continuumio/miniconda3:latest
+# Use an official Python runtime as a parent image
+FROM python:3.11
 
-## Switch shell
-SHELL ["/bin/bash", "-c"]
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-## Update and upgrade base sys
-RUN apt update && \
-    apt upgrade -y 
+# Copy the current directory contents into the container at /usr/src/app
+COPY . .
 
-## Unsure if this is necessary but adding for now
-RUN useradd -m managerApp && \
-    apt install -y sudo && \
-    usermod -aG sudo managerApp
-RUN echo 'managerApp ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
+# Make port 8000 available to the world outside this container
+EXPOSE 8000
+
+# Define environment variable
+ENV NAME World
+
+# Run app.py when the container launches
+RUN python manage.py migrate
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
