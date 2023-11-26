@@ -14,7 +14,9 @@
 
 ## Environment Configuration
 
-> Note: Docker is still a *WORK IN PROGRESS*. All environment commands shown to run in docker apply to local environment post-installation of miniconda3.
+~~> Note: Docker is still a *WORK IN PROGRESS*. All environment commands shown to run in docker apply to local environment post-installation of miniconda3.~~
+
+> **^ This shouldnt be required considering there is no necessary requirement for miniconda? Just use the default python3.11 install?**
 
 - Utilizing docker (continuumio/miniconda3)
     1. `docker pull continuumio/miniconda3`

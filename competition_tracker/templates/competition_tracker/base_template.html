@@ -80,17 +80,28 @@
 
         <!-- Dropdown bar and profile icon -->
         <div class="dropdown text-end">
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src={% static 'images/lulz.png' %} alt="Menu" width="32" height="32" class="rounded-circle">
-          </a>
-          <!-- Profile login thingy/drop down menu -->
-          <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">Portfolio</a></li>
-            <li><a class="dropdown-item" href="#">New Project</a></li>
-            <li><a class="dropdown-item" href="#">Export</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
+          
+          {% if user.is_authenticated %}
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src={% static 'images/lulz.png' %} alt="Menu" width="32" height="32" class="rounded-circle">
+            </a>
+            <!-- Profile login thingy/drop down menu -->
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" href="/competitions">Competitions</a></li>
+              <li><a class="dropdown-item" href="/competition/create">Create Competition</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+            </ul>
+          {% else %}
+            <a href="/login" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src={% static 'images/default.png' %} alt="Menu" width="32" height="32" class="rounded-circle">
+            </a>
+            <!-- Profile login thingy/drop down menu -->
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" href="/login">Login</a></li>
+              <li><a class="dropdown-item" href="/register">Register</a></li>
+            </ul>
+          {% endif %}
         </div>
       </div>
     </div>

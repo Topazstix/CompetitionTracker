@@ -1,0 +1,16 @@
+<!-- inherit from base.html-->
+{% extends 'competition_tracker/base_template.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>Login</h2>
+    <form method="post" class="form-signin">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Login</button>
+    </form>
+		<div class="mt-3">
+			<p class="text-lg-left ">Don't have an account? <a href="{% url 'register' %}" class="btn btn-lg btn-warning">Register here</a></p>
+	</div>
+</div>
+{% endblock %}

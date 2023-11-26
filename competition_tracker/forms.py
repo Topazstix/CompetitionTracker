@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import Competition, ClubMember
 
 class CompetitionForm(forms.ModelForm):
@@ -23,4 +25,19 @@ class ClubMemberForm(forms.ModelForm):
             'name': 'Enter the full name of the club member.',
             'username': 'Enter the preferred username for the club member.',
             'email': 'Enter the email address of the club member.',
+        }
+
+
+## User registration form
+class UserRegistrationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+    
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+        help_texts = {
+            'username': 'Enter a username for the new user.',
+            'email': 'Enter the email address of the new user.',
+            'password1': 'Enter a password for the new user.',
+            'password2': 'Confirm the password for the new user.',
         }

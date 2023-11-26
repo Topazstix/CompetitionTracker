@@ -19,6 +19,10 @@ APP_DIR = BASE_DIR / 'competition_tracker'
 ## DEBUG
 # print(APP_DIR) 
 
+## Login URL and redirection
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/competitions/'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/

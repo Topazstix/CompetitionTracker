@@ -1,0 +1,13 @@
+<!-- inherit from base.html-->
+{% extends 'competition_tracker/base_template.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>Register</h2>
+    <form method="post" class="form-signin">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Register</button>
+    </form>
+</div>
+{% endblock %}
