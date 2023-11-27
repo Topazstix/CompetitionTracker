@@ -9,13 +9,7 @@ from .forms import CompetitionForm, ClubMemberForm, UserRegistrationForm
 # List view for Competitions
 class CompetitionListView(generic.ListView):
     model = Competition
-    
-    # template_name = "competition_list.html"
-    # paginate_by = 10  # Display 10 competitions per page
-    
-    # def get_queryset(self):
-    #     # Return the queryset of competitions ordered by 'start_date'
-    #     return Competition.objects.all().order_by('start_date')
+
 
 # Detail view for a Competition
 class CompetitionDetailView(generic.DetailView):
@@ -26,38 +20,31 @@ class CompetitionDetailView(generic.DetailView):
 class CompetitionCreateView(LoginRequiredMixin, generic.CreateView):
     model = Competition
     form_class = CompetitionForm
-    
-    # template_name = 'competition_form.html'  # Replace with your actual template
+
 
 # Delete view for a Competition
 class CompetitionDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Competition
-    success_url = '/competitions/'  # Redirect to the competition list after delete
-    
+    success_url = '/competitions/'
 
 # List view for ClubMembers
 class ClubMemberListView(LoginRequiredMixin, generic.ListView):
     model = ClubMember
     paginate_by = 10
-    
 
 # Detail view for a ClubMember
 class ClubMemberDetailView(LoginRequiredMixin, generic.DetailView):
     model = ClubMember
-    
 
 # Create view for a ClubMember
 class ClubMemberCreateView(LoginRequiredMixin, generic.CreateView):
     model = ClubMember
     form_class = ClubMemberForm
-    
-    # template_name = 'clubmember_form.html'  # Replace with your actual template
 
 # Delete view for a ClubMember
 class ClubMemberDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = ClubMember
-    success_url = '/club-members/'  # Redirect to the club member list after delete
-    
+    success_url = '/club-members/'
 
 
 
