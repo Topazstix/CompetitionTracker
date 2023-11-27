@@ -35,8 +35,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'lobster-app-fb5ny.ondigitalocean.app',
-    'competition-tracker.ddns.net'
-    
+    'competition-tracker.ddns.net'   
+]
+
+## Allow trusted origin for CSRF tokens
+CSRF_TRUSTED_ORIGINS = [
+    'https://lobster-app-fb5ny.ondigitalocean.app'
 ]
 
 
