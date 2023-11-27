@@ -16,6 +16,9 @@ EXPOSE 8000
 # Define environment variable
 ENV NAME World
 
+# Import superuser
+RUN python manage.py shell < authentification.py
+
 # Run app.py when the container launches
 RUN python manage.py migrate
 
